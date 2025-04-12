@@ -1,4 +1,4 @@
-**Webpack Boilerplate**
+**Odin To-Do-List**
 
 run **npm install** to install all necessary dependencies
 
