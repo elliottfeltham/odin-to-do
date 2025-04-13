@@ -1,5 +1,5 @@
-import "./reset.css";
-import "./styles.css";
+import "./styles/reset.css";
+import "./styles/styles.css";
 
 const container = document.querySelector("body");
 const text = document.createElement("p");
