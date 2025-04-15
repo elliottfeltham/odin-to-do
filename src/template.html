@@ -4,11 +4,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webpage Boilerplate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>To-Do-Do</title>
 </head>
 
 <body>
-    <h1>Start your project...</h1>
+    <div class="container">
+        <header>
+            <h1>To-Do-Do</h1>
+        </header>
+        <aside class="sidebar">
+            <div class="to-do-sidebar">
+                <h4 class="sidebar-header">My To-do-do's</h4>
+                <ul class="to-do-list">
+                    <li>
+                        <button class="add-task-btn">Add Task</button>
+                    </li>
+                    <li>
+                        <button id="current-to-do-btn">Current To-do-do's</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="projects-sidebar">
+                <h4 class="sidebar-header">Projects</h4>
+                <ul class="projects-list">
+                    <li>
+                        <button class="add-project-btn">Add Project</button>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <main class="content-container">
+            <h2 class="content-header"></h2>
+            <div class="example-to-do">
+                <img src="./assests/check-circle-outline.svg">
+                <h5>Buy Eggs</h5>
+                <h6>27/04/2025</h6>
+            </div>
+            <div class="example-to-do">
+                <img src="./assests/check-circle-outline.svg">
+                <h5>Buy Milk</h5>
+                <h6>20/04/2025</h6>
+            </div>
+            <div class="example-to-do">
+                <img src="./assests/check-circle-outline.svg">
+                <h5>Get a new job</h5>
+                <h6>25/05/2026</h6>
+            </div>
+        </main>
+    </div>
 
 </body>
 

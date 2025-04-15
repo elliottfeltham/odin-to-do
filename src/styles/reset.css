@@ -26,6 +26,10 @@ svg {
 	max-width: 100%;
 }
 
+ul {
+	list-style: none;
+}
+
 input,
 button,
 textarea,
@@ -54,5 +58,4 @@ h4,
 h5,
 h6 {
 	text-wrap: balance;
-	text-align: center;
 }
