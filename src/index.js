@@ -2,25 +2,13 @@ import "./styles/reset.css";
 import "./styles/layout.css";
 import "./styles/sidebar.css";
 import "./styles/styles.css";
+import { loadCurrentToDoPage } from "./sort";
+import { createTodo } from "./todo";
 
-const button = document.querySelector("#current-to-do-btn");
+const currentToDoButton = document.querySelector("#current-to-do-btn");
 
-button.addEventListener("click", loadCurrentToDoPage);
-
-function loadCurrentToDoPage() {
-	const header = document.querySelector(".content-header");
-	header.textContent = "Current-To-Do-Do's";
-}
-
-// todo factory function
-function createTodo(title, description, dueDate, priority) {
-	return {
-		title,
-		description,
-		dueDate,
-		priority,
-	};
-}
+addEventListener("DOMContentLoaded", loadCurrentToDoPage);
+currentToDoButton.addEventListener("click", loadCurrentToDoPage);
 
 const todo = createTodo(
 	"Buy groceries",

@@ -17,6 +17,8 @@ header {
 	grid-template-columns: 50px 1fr;
 	grid-template-rows: 1fr 1fr;
 	column-gap: 1rem;
+	border: 1px solid black;
+	border-radius: 10px;
 }
 
 .example-to-do img {
