@@ -1,8 +1,3 @@
-export function loadCurrentToDoPage() {
-	const header = document.querySelector(".content-header");
-	header.textContent = "Current-To-Do-Do's";
-}
-
 export function loadTodayPage() {
 	const header = document.querySelector(".content-header");
 	header.textContent = "Today";

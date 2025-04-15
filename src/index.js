@@ -1,10 +1,8 @@
-// CSS Imports
 import "./styles/reset.css";
 import "./styles/layout.css";
 import "./styles/sidebar.css";
 import "./styles/styles.css";
 
-// DOM Imports
 import {
 	currentToDoButton,
 	todayButton,
@@ -12,14 +10,11 @@ import {
 	thisMonthButton,
 } from "./dom";
 
-import {
-	loadCurrentToDoPage,
-	loadTodayPage,
-	loadThisWeekPage,
-	loadThisMonthPage,
-} from "./sort";
+import { loadTodayPage, loadThisWeekPage, loadThisMonthPage } from "./sort";
 
-import { createTodo } from "./todo";
+import { createTodo, toggleCompleted, addTodoToProject } from "./todo";
+
+import { createProject, getProjects, loadCurrentToDoPage } from "./projects";
 
 // Event Listeners
 addEventListener("DOMContentLoaded", loadCurrentToDoPage);
@@ -41,5 +36,31 @@ const todoto = createTodo(
 	"Medium"
 );
 
-console.log(todo);
-console.log(todoto);
+const testToDo = createTodo(
+	"Do a test",
+	"See if its working",
+	"2025-04-15",
+	"Low"
+);
+
+let projects = getProjects();
+console.table(projects);
+
+console.table(todo);
+console.table(todoto);
+toggleCompleted(todoto);
+console.table(todoto);
+toggleCompleted(todoto);
+console.table(todoto);
+
+addTodoToProject(todo, "Current-To-Do-Do's");
+projects = getProjects();
+console.table(projects);
+addTodoToProject(todoto, "Current-To-Do-Do's");
+console.table(projects);
+
+const testProject = createProject("testProject");
+console.table(testProject);
+addTodoToProject(testToDo, "testProject");
+toggleCompleted(testToDo);
+console.table(testProject);
