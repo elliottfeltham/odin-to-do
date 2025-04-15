@@ -11,6 +11,11 @@ header {
 	margin-bottom: 1rem;
 }
 
+.add-task-btn {
+	width: 200px;
+	place-self: end;
+}
+
 .example-to-do {
 	padding: 1rem;
 	display: grid;
