@@ -1,9 +1,8 @@
 import { getProjects } from "./projects";
 import { getId, getUniqueId } from "./utils";
 
-// Factory function
 export function createTodo(title, description, dueDate, priority) {
-	return {
+	const todo = {
 		id: getUniqueId(),
 		title,
 		description,
@@ -12,9 +11,10 @@ export function createTodo(title, description, dueDate, priority) {
 		completed: false,
 		getId,
 	};
+	addTodoToDefaultProject(todo);
+	return todo;
 }
 
-// Separate behavior
 export function toggleCompleted(todo) {
 	todo.completed = !todo.completed;
 }
@@ -25,6 +25,17 @@ export function addTodoToProject(todo, projectName) {
 	);
 	if (project) {
 		project.todos.push(todo);
+	} else {
+		console.log("Project not found");
+	}
+}
+
+export function addTodoToDefaultProject(todo) {
+	const defaultProject = getProjects().find(
+		(project) => project.name === "Current-To-Do-Do's"
+	);
+	if (defaultProject) {
+		defaultProject.todos.push(todo);
 	} else {
 		console.log("Project not found");
 	}

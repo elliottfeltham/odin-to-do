@@ -12,7 +12,12 @@ import {
 
 import { loadTodayPage, loadThisWeekPage, loadThisMonthPage } from "./sort";
 
-import { createTodo, toggleCompleted, addTodoToProject } from "./todo";
+import {
+	createTodo,
+	toggleCompleted,
+	addTodoToProject,
+	addTodoToDefaultProject,
+} from "./todo";
 
 import { createProject, getProjects, loadCurrentToDoPage } from "./projects";
 
@@ -43,24 +48,13 @@ const testToDo = createTodo(
 	"Low"
 );
 
+const testProject = createProject("testProject");
 let projects = getProjects();
 console.table(projects);
+addTodoToProject(todoto, "testProject");
 
-console.table(todo);
-console.table(todoto);
-toggleCompleted(todoto);
-console.table(todoto);
-toggleCompleted(todoto);
-console.table(todoto);
-
-addTodoToProject(todo, "Current-To-Do-Do's");
-projects = getProjects();
-console.table(projects);
-addTodoToProject(todoto, "Current-To-Do-Do's");
-console.table(projects);
-
-const testProject = createProject("testProject");
-console.table(testProject);
-addTodoToProject(testToDo, "testProject");
 toggleCompleted(testToDo);
-console.table(testProject);
+console.log(projects);
+
+console.log(testToDo.getId());
+console.log(projects[0].getId());

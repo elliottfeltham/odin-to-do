@@ -5,6 +5,7 @@ const projects = [
 		id: getUniqueProjectId(),
 		name: "Current-To-Do-Do's",
 		todos: [],
+		getId,
 	},
 ];
 
