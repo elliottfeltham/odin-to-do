@@ -40,3 +40,33 @@ export function addTodoToDefaultProject(todo) {
 		console.log("Project not found");
 	}
 }
+
+export function deleteTodo(todoId) {
+	const projects = getProjects();
+
+	projects.forEach((project) => {
+		const todoIndex = project.todos.findIndex((todo) => todo.id === todoId);
+
+		if (todoIndex !== -1) {
+			project.todos.splice(todoIndex, 1);
+		}
+	});
+}
+
+export function removeTodoFromProject(todoId, projectId) {
+	const projects = getProjects();
+	const project = projects.find((project) => project.id === projectId);
+
+	if (!project) {
+		console.log("Project not found");
+		return false;
+	}
+
+	const todoIndex = project.todos.findIndex((todo) => todo.id === todoId);
+
+	if (todoIndex === -1) {
+		console.log("No todo at this index");
+		return false;
+	}
+	project.todos.splice(todoIndex, 1);
+}

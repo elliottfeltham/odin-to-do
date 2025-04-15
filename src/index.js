@@ -16,7 +16,8 @@ import {
 	createTodo,
 	toggleCompleted,
 	addTodoToProject,
-	addTodoToDefaultProject,
+	removeTodoFromProject,
+	deleteTodo,
 } from "./todo";
 
 import { createProject, getProjects, loadCurrentToDoPage } from "./projects";
@@ -48,13 +49,22 @@ const testToDo = createTodo(
 	"Low"
 );
 
+// TESTING
+
 const testProject = createProject("testProject");
 let projects = getProjects();
 console.table(projects);
 addTodoToProject(todoto, "testProject");
 
 toggleCompleted(testToDo);
-console.log(projects);
+console.table(projects);
 
-console.log(testToDo.getId());
-console.log(projects[0].getId());
+console.table(testToDo.getId());
+console.table(projects[0].getId());
+
+// removeTodoFromProject(testToDo.getId(), projects[0].getId());
+console.table(projects);
+deleteTodo(0);
+deleteTodo(1);
+deleteTodo(2);
+console.table(projects);

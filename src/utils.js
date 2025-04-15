@@ -2,11 +2,11 @@ let id = 0;
 let projectId = 0;
 
 export function getUniqueId() {
-	return id++ + "";
+	return id++;
 }
 
 export function getUniqueProjectId() {
-	return projectId++ + "";
+	return projectId++;
 }
 
 export function getId() {

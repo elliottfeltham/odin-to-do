@@ -24,6 +24,8 @@ export function getProjects() {
 	return projects;
 }
 
+// Delete project function
+
 // Loads default project
 export function loadCurrentToDoPage() {
 	const header = document.querySelector(".content-header");
