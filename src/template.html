@@ -49,27 +49,58 @@
         </aside>
         <main class="content-container">
 
-            <button class="add-task-btn">Add Task</button>
+            <button class="add-to-do-btn">Add To-do-do</button>
 
             <h2 class="content-header"></h2>
-            <div class="example-to-do">
+            <div class="to-do-item">
                 <img src="./assests/check-circle-outline.svg">
                 <h5>Buy Eggs</h5>
                 <h6>27/04/2025</h6>
             </div>
-            <div class="example-to-do">
+            <div class="to-do-item">
                 <img src="./assests/check-circle.svg">
                 <h5>Buy Milk</h5>
                 <h6>20/04/2025</h6>
             </div>
-            <div class="example-to-do">
+            <div class="to-do-item">
                 <img src="./assests/check-circle-outline.svg">
                 <h5>Get a new job</h5>
                 <h6>25/05/2026</h6>
             </div>
         </main>
-    </div>
 
+    </div>
+    <dialog id="add-to-do-modal">
+        <form>
+            <ul>
+                <li class="modal-input">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
+                </li>
+                <li class="modal-input">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description">
+                </li>
+                <li class="modal-input">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date">
+                </li>
+                <li class="modal-input">
+                    <label for="priority">Priority:</label>
+                    <select id="priority" name="priority">
+                        <option value="low">-Select a priority-</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </li>
+                <div class="modal-buttons">
+                    <button id="confirm-add-modal-btn" type="button">Add To-do-do!</button>
+                    <button id="close-add-modal-btn " type="button">Close</button>
+                </div>
+            </ul>
+        </form>
+    </dialog>
 </body>
 
 </html>

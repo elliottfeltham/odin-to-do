@@ -11,12 +11,12 @@ header {
 	margin-bottom: 1rem;
 }
 
-.add-task-btn {
+.add-to-do-btn {
 	width: 200px;
 	place-self: end;
 }
 
-.example-to-do {
+.to-do-item {
 	padding: 1rem;
 	display: grid;
 	grid-template-columns: 50px 1fr;
@@ -26,7 +26,7 @@ header {
 	border-radius: 10px;
 }
 
-.example-to-do img {
+.to-do-item img {
 	height: 3rem;
 	width: 3rem;
 	grid-row: 1 /-1;

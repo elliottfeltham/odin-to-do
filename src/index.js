@@ -1,15 +1,10 @@
 import "./styles/reset.css";
 import "./styles/layout.css";
 import "./styles/sidebar.css";
+import "./styles/modal.css";
 import "./styles/styles.css";
 
-import {
-	allToDosButton,
-	projectButton,
-	todayButton,
-	thisWeekButton,
-	thisMonthButton,
-} from "./dom";
+import { navController, buttonController, modalController } from "./dom";
 
 import { loadTodayPage, loadThisWeekPage, loadThisMonthPage } from "./sort";
 
@@ -33,13 +28,17 @@ import {
 
 // Event Listeners
 addEventListener("DOMContentLoaded", loadAllToDosPage);
-allToDosButton.addEventListener("click", loadAllToDosPage);
-projectButton.addEventListener("click", () => {
+navController.allToDosButton.addEventListener("click", loadAllToDosPage);
+navController.projectButton.addEventListener("click", () => {
 	loadSelectedProjectPage(testProject.getId());
 });
-todayButton.addEventListener("click", loadTodayPage);
-thisWeekButton.addEventListener("click", loadThisWeekPage);
-thisMonthButton.addEventListener("click", loadThisMonthPage);
+navController.todayButton.addEventListener("click", loadTodayPage);
+navController.thisWeekButton.addEventListener("click", loadThisWeekPage);
+navController.thisMonthButton.addEventListener("click", loadThisMonthPage);
+
+buttonController.addToDoButton.addEventListener("click", () => {
+	modalController.addToDoModal.showModal();
+});
 
 const todo = createTodo(
 	"Buy groceries",
