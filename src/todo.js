@@ -1,12 +1,12 @@
 import { getProjects } from "./projects";
 import { getId, getUniqueId } from "./utils";
 
-export function createTodo(title, description, dueDate, priority) {
+export function createTodo(title, description, date, priority) {
 	const todo = {
 		id: getUniqueId(),
 		title,
 		description,
-		dueDate,
+		date,
 		priority,
 		completed: false,
 		getId,
@@ -75,7 +75,7 @@ export function editTodo(
 	todoId,
 	newTitle,
 	newDescription,
-	newDueDate,
+	newDate,
 	newPriority
 ) {
 	const projects = getProjects();
@@ -86,7 +86,7 @@ export function editTodo(
 		if (todo) {
 			todo.title = newTitle;
 			todo.description = newDescription;
-			todo.dueDate = newDueDate;
+			todo.dueDate = newDate;
 			todo.priority = newPriority;
 		}
 	});

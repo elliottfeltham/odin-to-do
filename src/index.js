@@ -25,7 +25,6 @@ import {
 import { initializeEventListeners } from "./events";
 
 initializeEventListeners();
-addEventListener("DOMContentLoaded", loadAllToDosPage);
 
 // TESTING
 
