@@ -4,7 +4,8 @@ import "./styles/sidebar.css";
 import "./styles/styles.css";
 
 import {
-	currentToDoButton,
+	allToDosButton,
+	projectButton,
 	todayButton,
 	thisWeekButton,
 	thisMonthButton,
@@ -18,13 +19,24 @@ import {
 	addTodoToProject,
 	removeTodoFromProject,
 	deleteTodo,
+	editTodo,
 } from "./todo";
 
-import { createProject, getProjects, loadCurrentToDoPage } from "./projects";
+import {
+	createProject,
+	deleteProject,
+	editProject,
+	getProjects,
+	loadAllToDosPage,
+	loadSelectedProjectPage,
+} from "./projects";
 
 // Event Listeners
-addEventListener("DOMContentLoaded", loadCurrentToDoPage);
-currentToDoButton.addEventListener("click", loadCurrentToDoPage);
+addEventListener("DOMContentLoaded", loadAllToDosPage);
+allToDosButton.addEventListener("click", loadAllToDosPage);
+projectButton.addEventListener("click", () => {
+	loadSelectedProjectPage(testProject.getId());
+});
 todayButton.addEventListener("click", loadTodayPage);
 thisWeekButton.addEventListener("click", loadThisWeekPage);
 thisMonthButton.addEventListener("click", loadThisMonthPage);
@@ -56,15 +68,17 @@ let projects = getProjects();
 console.table(projects);
 addTodoToProject(todoto, "testProject");
 
-toggleCompleted(testToDo);
-console.table(projects);
-
-console.table(testToDo.getId());
-console.table(projects[0].getId());
-
 // removeTodoFromProject(testToDo.getId(), projects[0].getId());
-console.table(projects);
-deleteTodo(0);
-deleteTodo(1);
-deleteTodo(2);
-console.table(projects);
+// console.table(projects);
+// deleteTodo(0);
+// deleteTodo(1);
+// deleteTodo(2);
+// console.table(projects);
+
+// editTodo(
+// 	testToDo.getId(),
+// 	"Do a test edit",
+// 	"See if its really working",
+// 	"2025-04-17",
+// 	"High"
+// );

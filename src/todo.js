@@ -32,7 +32,7 @@ export function addTodoToProject(todo, projectName) {
 
 export function addTodoToDefaultProject(todo) {
 	const defaultProject = getProjects().find(
-		(project) => project.name === "Current-To-Do-Do's"
+		(project) => project.name === "All To-Do-Do's"
 	);
 	if (defaultProject) {
 		defaultProject.todos.push(todo);
@@ -69,4 +69,25 @@ export function removeTodoFromProject(todoId, projectId) {
 		return false;
 	}
 	project.todos.splice(todoIndex, 1);
+}
+
+export function editTodo(
+	todoId,
+	newTitle,
+	newDescription,
+	newDueDate,
+	newPriority
+) {
+	const projects = getProjects();
+
+	projects.forEach((project) => {
+		const todo = project.todos.find((todo) => todo.id === todoId);
+
+		if (todo) {
+			todo.title = newTitle;
+			todo.description = newDescription;
+			todo.dueDate = newDueDate;
+			todo.priority = newPriority;
+		}
+	});
 }
