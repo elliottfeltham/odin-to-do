@@ -4,10 +4,6 @@ import "./styles/sidebar.css";
 import "./styles/modal.css";
 import "./styles/styles.css";
 
-import { navController, buttonController, modalController } from "./dom";
-
-import { loadTodayPage, loadThisWeekPage, loadThisMonthPage } from "./sort";
-
 import {
 	createTodo,
 	toggleCompleted,
@@ -26,19 +22,12 @@ import {
 	loadSelectedProjectPage,
 } from "./projects";
 
-// Event Listeners
-addEventListener("DOMContentLoaded", loadAllToDosPage);
-navController.allToDosButton.addEventListener("click", loadAllToDosPage);
-navController.projectButton.addEventListener("click", () => {
-	loadSelectedProjectPage(testProject.getId());
-});
-navController.todayButton.addEventListener("click", loadTodayPage);
-navController.thisWeekButton.addEventListener("click", loadThisWeekPage);
-navController.thisMonthButton.addEventListener("click", loadThisMonthPage);
+import { initializeEventListeners } from "./events";
 
-buttonController.addToDoButton.addEventListener("click", () => {
-	modalController.addToDoModal.showModal();
-});
+initializeEventListeners();
+addEventListener("DOMContentLoaded", loadAllToDosPage);
+
+// TESTING
 
 const todo = createTodo(
 	"Buy groceries",
@@ -60,9 +49,7 @@ const testToDo = createTodo(
 	"Low"
 );
 
-// TESTING
-
-const testProject = createProject("testProject");
+export const testProject = createProject("testProject");
 let projects = getProjects();
 console.table(projects);
 addTodoToProject(todoto, "testProject");
