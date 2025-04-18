@@ -25,8 +25,8 @@ ul {
 .modal-input {
 	display: flex;
 	margin-top: 1rem;
-	margin-left: 2rem;
-	margin-right: 2rem;
+	margin-left: 3rem;
+	margin-right: 3rem;
 	padding: 4px;
 	gap: 8px;
 	align-items: center;

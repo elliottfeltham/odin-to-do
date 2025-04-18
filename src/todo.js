@@ -91,3 +91,14 @@ export function editTodo(
 		}
 	});
 }
+
+// Add functions to the controller object
+export const todoController = {
+	createTodo,
+	toggleCompleted,
+	addTodoToProject,
+	addTodoToDefaultProject,
+	deleteTodo,
+	removeTodoFromProject,
+	editTodo,
+};

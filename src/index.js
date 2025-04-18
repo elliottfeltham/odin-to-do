@@ -4,14 +4,7 @@ import "./styles/sidebar.css";
 import "./styles/modal.css";
 import "./styles/styles.css";
 
-import {
-	createTodo,
-	toggleCompleted,
-	addTodoToProject,
-	removeTodoFromProject,
-	deleteTodo,
-	editTodo,
-} from "./todo";
+import { todoController } from "./todo";
 
 import {
 	createProject,
@@ -28,20 +21,20 @@ initializeEventListeners();
 
 // TESTING
 
-const todo = createTodo(
+const todo = todoController.createTodo(
 	"Buy groceries",
 	"Milk, eggs, bread",
 	"2025-04-14",
 	"High"
 );
-const todoto = createTodo(
+const todoto = todoController.createTodo(
 	"Get a job",
 	"Preferably in Tech",
 	"2025-04-27",
 	"Medium"
 );
 
-const testToDo = createTodo(
+const testToDo = todoController.createTodo(
 	"Do a test",
 	"See if its working",
 	"2025-04-15",
@@ -51,7 +44,7 @@ const testToDo = createTodo(
 export const testProject = createProject("testProject");
 let projects = getProjects();
 console.table(projects);
-addTodoToProject(todoto, "testProject");
+todoController.addTodoToProject(todoto, "testProject");
 
 // removeTodoFromProject(testToDo.getId(), projects[0].getId());
 // console.table(projects);
