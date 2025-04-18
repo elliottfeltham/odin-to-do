@@ -1,6 +1,6 @@
 import { getId, getUniqueProjectId } from "./utils";
 
-const projects = [
+export const projects = [
 	{
 		id: getUniqueProjectId(),
 		name: "All To-Do-Do's",
@@ -26,7 +26,7 @@ export function getProjects() {
 
 // Delete project function
 
-export function deleteProject(projectId) {
+export function deleteProject({ id: projectId }) {
 	const projects = getProjects();
 
 	const defaultProject = projects.find(
@@ -56,7 +56,7 @@ export function deleteProject(projectId) {
 
 // Edit project name function
 
-export function editProject(projectId, newName) {
+export function editProject({ id: projectId }, newName) {
 	const projects = getProjects();
 	const project = projects.find((project) => project.id === projectId);
 	project.name = newName;
@@ -70,11 +70,21 @@ export function loadAllToDosPage() {
 
 // Load selected project
 
-export function loadSelectedProjectPage(projectId) {
+export function loadSelectedProjectPage({ id: projectId }) {
 	const projects = getProjects();
 	const selectedProject = projects.find(
 		(project) => project.id === projectId
 	);
 	const header = document.querySelector(".content-header");
 	header.textContent = selectedProject.name;
+	// renderToDo function
 }
+
+export const projectController = {
+	createProject,
+	getProjects,
+	deleteProject,
+	editProject,
+	loadAllToDosPage,
+	loadSelectedProjectPage,
+};

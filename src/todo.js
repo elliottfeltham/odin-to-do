@@ -41,7 +41,7 @@ export function addTodoToDefaultProject(todo) {
 	}
 }
 
-export function deleteTodo(todoId) {
+export function deleteTodo({ id: todoId }) {
 	const projects = getProjects();
 
 	projects.forEach((project) => {
@@ -53,7 +53,7 @@ export function deleteTodo(todoId) {
 	});
 }
 
-export function removeTodoFromProject(todoId, projectId) {
+export function removeTodoFromProject({ id: todoId }, { id: projectId }) {
 	const projects = getProjects();
 	const project = projects.find((project) => project.id === projectId);
 
@@ -72,7 +72,7 @@ export function removeTodoFromProject(todoId, projectId) {
 }
 
 export function editTodo(
-	todoId,
+	{ id: todoId },
 	newTitle,
 	newDescription,
 	newDate,

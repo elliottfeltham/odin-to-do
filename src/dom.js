@@ -8,6 +8,7 @@ export const navController = {
 
 export const buttonController = {
 	addToDoButton: document.querySelector(".add-to-do-btn"),
+	markCompleteButton: document.querySelector(".mark-complete-button"),
 };
 
 export const modalController = {
@@ -21,4 +22,9 @@ export const formController = {
 	addToDoDescription: document.querySelector("#add-to-do-description"),
 	addToDoDate: document.querySelector("#add-to-do-date"),
 	addToDoPriority: document.querySelector("#add-to-do-priority"),
+};
+
+export const domController = {
+	contentContainer: document.querySelector(".content-container"),
+	todoItemList: document.querySelector(".to-do-item-list"),
 };

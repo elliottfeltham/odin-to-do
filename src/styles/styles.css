@@ -29,5 +29,15 @@ header {
 .to-do-item img {
 	height: 3rem;
 	width: 3rem;
+}
+
+.to-do-item-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.mark-complete-button {
+	all: unset;
 	grid-row: 1 /-1;
 }

@@ -1,7 +1,17 @@
-import { navController, buttonController, modalController } from "./dom";
+import {
+	navController,
+	buttonController,
+	modalController,
+	domController,
+} from "./dom";
 import { loadTodayPage, loadThisWeekPage, loadThisMonthPage } from "./sort";
-import { loadAllToDosPage, loadSelectedProjectPage } from "./projects";
-import { testProject } from "."; // Temporary
+import {
+	getProjects,
+	loadAllToDosPage,
+	loadSelectedProjectPage,
+} from "./projects";
+import { toggleCompleted } from "./todo";
+import { renderToDos } from "./render";
 
 export function initializeEventListeners() {
 	// Handle initial load
@@ -27,5 +37,21 @@ export function initializeEventListeners() {
 
 	modalController.closeToDoModalButton().addEventListener("click", () => {
 		modalController.addToDoModal.close();
+	});
+
+	// To-Do-List
+	domController.contentContainer.addEventListener("click", (event) => {
+		if (event.target.closest(".mark-complete-button")) {
+			const todoItem = event.target.closest(".to-do-item");
+
+			const todoIndex = todoItem.dataset.indexNumber;
+
+			const projects = getProjects();
+			const todo = projects[0].todos[todoIndex]; // Adjust this to target the correct project
+			toggleCompleted(todo);
+
+			domController.todoItemList.innerHTML = "";
+			renderToDos(projects[0]); // Adjust this to target the current project
+		}
 	});
 }

@@ -52,41 +52,28 @@
             <button class="add-to-do-btn">Add To-do-do!</button>
 
             <h2 class="content-header"></h2>
-            <div class="to-do-item">
-                <img src="./assests/check-circle-outline.svg">
-                <h5>Buy Eggs</h5>
-                <h6>27/04/2025</h6>
-            </div>
-            <div class="to-do-item">
-                <img src="./assests/check-circle.svg">
-                <h5>Buy Milk</h5>
-                <h6>20/04/2025</h6>
-            </div>
-            <div class="to-do-item">
-                <img src="./assests/check-circle-outline.svg">
-                <h5>Get a new job</h5>
-                <h6>25/05/2026</h6>
-            </div>
-        </main>
+            <ul class="to-do-item-list">
 
+            </ul>
+        </main>
     </div>
     <dialog id="add-to-do-modal">
         <form>
             <ul>
                 <li class="modal-input">
-                    <label for="title">Title:</label>
+                    <label for="add-to-do-title">Title:</label>
                     <input type="text" id="add-to-do-title" name="add-to-do-title" autocomplete="off">
                 </li>
                 <li class="modal-input">
-                    <label for="description">Description:</label>
+                    <label for="add-to-do-description">Description:</label>
                     <input type="text" id="add-to-do-description" name="add-to-do-description" autocomplete="off">
                 </li>
                 <li class="modal-input">
-                    <label for="date">Date:</label>
+                    <label for="add-to-do-date">Date:</label>
                     <input type="date" id="add-to-do-date" name="add-to-do-date" autocomplete="off">
                 </li>
                 <li class="modal-input">
-                    <label for="priority">Priority:</label>
+                    <label for="add-to-do-priority">Priority:</label>
                     <select id="add-to-do-priority" name="add-to-do-priority">
                         <option value="low">-Select a priority-</option>
                         <option value="high">High</option>
