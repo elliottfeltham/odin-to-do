@@ -1,5 +1,5 @@
 import { getProjects } from "./projects";
-import { domController } from "./dom";
+import { domController, formController } from "./dom";
 import uncheckedIcon from "./assets/check-circle-outline.svg";
 import checkedIcon from "./assets/check-circle.svg";
 
@@ -7,6 +7,8 @@ const UNCHECKEDICON = uncheckedIcon;
 const CHECKEDICON = checkedIcon;
 
 export function renderToDos({ id: projectId }) {
+	const todoItemList = domController.todoItemList;
+	todoItemList.innerHTML = "";
 	const projects = getProjects();
 
 	const project = projects.find((project) => project.id === projectId);
@@ -31,10 +33,15 @@ export function renderToDos({ id: projectId }) {
 
 		markCompleteButton.append(img);
 		todoItem.append(markCompleteButton, todoTitle, todoDate);
-		domController.todoItemList.append(todoItem);
+		todoItemList.append(todoItem);
 	});
 }
 
-// saveToDoModal()
+export function saveToDoModal(todo) {
+	todo.title = formController.addToDoTitle.value;
+	todo.descriptioon = formController.addToDoDescription.value;
+	todo.date = formController.addToDoDate.value;
+	todo.priority = formController.addToDoPriority.value;
+}
 
-//
+// I need to create a todo when the modal is submitted and set all of the values to the values of the form

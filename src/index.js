@@ -12,18 +12,18 @@ import { projects } from "./projects";
 import { renderToDos } from "./render";
 
 initializeEventListeners();
-const todo = todoController.createTodo(
-	"Buy groceries",
-	"Milk, eggs, bread",
-	"2025-04-14",
-	"High"
-);
-const tododo = todoController.createTodo(
-	"Buy eggs",
-	"eggs, eggs, eggs",
-	"2025-04-15",
-	"Medium"
-);
+// const todo = todoController.createTodo(
+// 	"Buy groceries",
+// 	"Milk, eggs, bread",
+// 	"2025-04-14",
+// 	"High"
+// );
+// const tododo = todoController.createTodo(
+// 	"Buy eggs",
+// 	"eggs, eggs, eggs",
+// 	"2025-04-15",
+// 	"Medium"
+// );
 renderToDos(projects[0]);
 
 // TESTING

@@ -9,9 +9,12 @@ import {
 	getProjects,
 	loadAllToDosPage,
 	loadSelectedProjectPage,
+	projects,
 } from "./projects";
-import { toggleCompleted } from "./todo";
-import { renderToDos } from "./render";
+import { createTodo, toggleCompleted } from "./todo";
+import { renderToDos, saveToDoModal } from "./render";
+
+let currentProject = null; // Manage the state of the currently selected product
 
 export function initializeEventListeners() {
 	// Handle initial load
@@ -32,6 +35,10 @@ export function initializeEventListeners() {
 	});
 
 	modalController.confirmToDoModalButton.addEventListener("click", () => {
+		const newTodo = createTodo();
+		saveToDoModal(newTodo);
+		// Add todo to project function call
+		renderToDos(projects[0]);
 		modalController.addToDoModal.close(); // Add save todo form function
 	});
 
