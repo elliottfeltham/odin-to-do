@@ -44,4 +44,9 @@ export function saveToDoModal(todo) {
 	todo.priority = formController.addToDoPriority.value;
 }
 
-// I need to create a todo when the modal is submitted and set all of the values to the values of the form
+export function resetToDoModal() {
+	formController.addToDoTitle.value = "";
+	formController.addToDoDescription.value = "";
+	formController.addToDoDate.value = "";
+	formController.addToDoPriority.value = "";
+}

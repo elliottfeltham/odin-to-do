@@ -11,7 +11,6 @@ export function createTodo(title, description, date, priority) {
 		completed: false,
 		getId,
 	};
-	addTodoToDefaultProject(todo);
 	return todo;
 }
 
@@ -23,11 +22,17 @@ export function addTodoToProject(todo, projectName) {
 	const project = getProjects().find(
 		(project) => project.name === projectName
 	);
-	if (project) {
-		project.todos.push(todo);
-	} else {
+
+	if (!project) {
 		console.log("Project not found");
+		return false;
 	}
+
+	if (project.name === "All To-Do-Do's") {
+		return false;
+	}
+
+	project.todos.push(todo);
 }
 
 export function addTodoToDefaultProject(todo) {

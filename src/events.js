@@ -11,8 +11,8 @@ import {
 	loadSelectedProjectPage,
 	projects,
 } from "./projects";
-import { createTodo, toggleCompleted } from "./todo";
-import { renderToDos, saveToDoModal } from "./render";
+import { createTodo, toggleCompleted, addTodoToDefaultProject } from "./todo";
+import { renderToDos, resetToDoModal, saveToDoModal } from "./render";
 
 let currentProject = null; // Manage the state of the currently selected product
 
@@ -29,7 +29,7 @@ export function initializeEventListeners() {
 	navController.thisWeekButton.addEventListener("click", loadThisWeekPage);
 	navController.thisMonthButton.addEventListener("click", loadThisMonthPage);
 
-	// Modal
+	// Todo Modal
 	buttonController.addToDoButton.addEventListener("click", () => {
 		modalController.addToDoModal.showModal();
 	});
@@ -37,13 +37,32 @@ export function initializeEventListeners() {
 	modalController.confirmToDoModalButton.addEventListener("click", () => {
 		const newTodo = createTodo();
 		saveToDoModal(newTodo);
+		addTodoToDefaultProject(newTodo);
 		// Add todo to project function call
-		renderToDos(projects[0]);
+		renderToDos(projects[0]); // Change this to current project when the logic is set up
 		modalController.addToDoModal.close(); // Add save todo form function
+		resetToDoModal();
 	});
 
 	modalController.closeToDoModalButton().addEventListener("click", () => {
 		modalController.addToDoModal.close();
+	});
+
+	// Project Modal
+	buttonController.addProjectButton.addEventListener("click", () => {
+		modalController.addProjectModal.showModal();
+	});
+
+	modalController.confirmProjectModalButton.addEventListener("click", () => {
+		// create project function
+		// save project modal values function
+		// render projects function
+		//	close modal function
+		// reset project modal function
+	});
+
+	modalController.closeProjectModalButton.addEventListener("click", () => {
+		modalController.addProjectModal.close();
 	});
 
 	// To-Do-List
@@ -52,11 +71,9 @@ export function initializeEventListeners() {
 			const todoItem = event.target.closest(".to-do-item");
 
 			const todoIndex = todoItem.dataset.indexNumber;
-
 			const projects = getProjects();
 			const todo = projects[0].todos[todoIndex]; // Adjust this to target the correct project
 			toggleCompleted(todo);
-
 			domController.todoItemList.innerHTML = "";
 			renderToDos(projects[0]); // Adjust this to target the current project
 		}

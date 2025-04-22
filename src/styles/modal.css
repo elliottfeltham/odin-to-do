@@ -16,10 +16,15 @@ ul {
 	padding: 0;
 }
 
-#add-to-do-modal {
+#add-to-do-modal,
+#add-project-modal {
 	height: 350px;
 	width: 500px;
 	padding: 2rem;
+}
+
+#add-project-modal {
+	height: 150px;
 }
 
 .modal-input {
