@@ -34,15 +34,10 @@
             </div>
             <div class="projects-sidebar">
                 <h4 class="sidebar-header">Projects</h4>
+                <button class="add-project-btn">Add Project</button>
                 <ul class="projects-list">
-                    <li>
-                        <button class="add-project-btn">Add Project</button>
-                    </li>
-                    <li>
-                        <button id="all-to-dos-btn">All To-do-do's</button>
-                    </li>
-                    <li>
-                        <button id="project-btn">Test Project</button>
+                    <li class="project">
+                        <button id="all-to-dos-btn">All To-Do-Do's</button>
                     </li>
                 </ul>
             </div>
@@ -87,6 +82,22 @@
                 </div>
             </ul>
         </form>
+    </dialog>
+    <dialog id="display-to-do-modal">
+        <p class="display-to-do-modal-item"><strong>Title: </strong><span id="display-to-do-title"></span></p>
+        <p class="display-to-do-modal-item"><strong>Description: </strong><span id="display-to-do-description"></span>
+        </p>
+        <p class="display-to-do-modal-item"><strong>Date: </strong><span id="display-to-do-date"></span></p>
+        <p class="display-to-do-modal-item"><strong>Priority: </strong><span id="display-to-do-priority"></span></p>
+        <div class="modal-buttons">
+            <button id="edit-to-do-btn" type="button">Edit To-Do-Do</button>
+            <button class="delete-to-do-btn" type="button">Delete To-Do-Do</button>
+            <button id="close-display-to-do-btn" type="button">Close</button>
+        </div>
+    </dialog>
+    <dialog id="edit-to-do-modal">
+
+
     </dialog>
     <dialog id="add-project-modal">
         <form>

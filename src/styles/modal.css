@@ -17,7 +17,9 @@ ul {
 }
 
 #add-to-do-modal,
-#add-project-modal {
+#add-project-modal,
+#display-to-do-modal,
+#edit-to-do-modal {
 	height: 350px;
 	width: 500px;
 	padding: 2rem;
