@@ -12,7 +12,12 @@ import {
 	loadSelectedProjectPage,
 	projects,
 } from "./projects";
-import { createTodo, toggleCompleted, addTodoToDefaultProject } from "./todo";
+import {
+	createTodo,
+	toggleCompleted,
+	addTodoToDefaultProject,
+	todoController,
+} from "./todo";
 import {
 	renderProjects,
 	renderToDoDetails,
@@ -53,8 +58,7 @@ export function initializeEventListeners() {
 			const newTodo = createTodo();
 			saveToDoModal(newTodo);
 			addTodoToDefaultProject(newTodo);
-			console.log(newTodo);
-			// Add todo to project function call
+			// Add todo to project function call // addTodoToProject(newTodo, curretnProject)
 			renderToDos(currentProject); // Change this to current project when the logic is set up
 			modalController.addToDoModal.close();
 			resetToDoModal();
@@ -101,7 +105,14 @@ export function initializeEventListeners() {
 	});
 
 	modalController.deleteToDoButton.addEventListener("click", (event) => {
+		// Change this to use ID instead
+		const todoName = modalController.displayToDoTitle.textContent;
+		const todo = currentProject.todos.find(
+			(todo) => todo.title === todoName
+		);
+		todoController.deleteTodo(todo);
 		modalController.displayToDoModal.close();
+		renderToDos(currentProject);
 	});
 
 	modalController.closeDisplayToDoButton.addEventListener("click", () => {

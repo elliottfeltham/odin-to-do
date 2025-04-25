@@ -17,6 +17,7 @@ export function renderToDos({ id: projectId }) {
 		const todoItem = document.createElement("li");
 		todoItem.classList.add("to-do-item");
 
+		todoItem.dataset.id = todo.id;
 		todoItem.dataset.indexNumber = index;
 
 		const img = document.createElement("img");
