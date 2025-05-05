@@ -92,27 +92,30 @@ export function initializeEventListeners() {
 
 	// Display To-Do Details
 	domController.contentContainer.addEventListener("click", (event) => {
-		if (event.target.closest(".mark-complete-button")) {
+		const todoItem = event.target.closest(".to-do-item");
+
+		if (!todoItem || event.target.closest(".mark-complete-button")) {
 			return;
 		}
-		if (event.target.closest(".to-do-item")) {
-			modalController.displayToDoModal.showModal();
-			const todoItem = event.target.closest(".to-do-item");
-			const todoIndex = todoItem.dataset.indexNumber;
-			const todo = currentProject.todos[todoIndex];
-			renderToDoDetails(todo);
+
+		const todoId = Number(todoItem.dataset.id);
+		const todo = currentProject.todos.find((todo) => todo.id === todoId);
+
+		if (!todo) {
+			console.error(`To-Do with ID ${todoId} not found.`);
+			return;
 		}
+
+		modalController.displayToDoModal.dataset.id = todoId; // Store the ID in the modal
+		renderToDoDetails(todo); // Populate the modal with to-do details
+		modalController.displayToDoModal.showModal(); // Show the modal
 	});
 
-	modalController.deleteToDoButton.addEventListener("click", (event) => {
-		// Change this to use ID instead
-		const todoName = modalController.displayToDoTitle.textContent;
-		const todo = currentProject.todos.find(
-			(todo) => todo.title === todoName
-		);
-		todoController.deleteTodo(todo);
-		modalController.displayToDoModal.close();
-		renderToDos(currentProject);
+	modalController.deleteToDoButton.addEventListener("click", () => {
+		const todoId = Number(modalController.displayToDoModal.dataset.id); // Retrieve the ID from the modal
+		todoController.deleteTodo({ id: todoId }); // Delete the to-do using its ID
+		modalController.displayToDoModal.close(); // Close the modal
+		renderToDos(currentProject); // Re-render the to-do list
 	});
 
 	modalController.closeDisplayToDoButton.addEventListener("click", () => {
