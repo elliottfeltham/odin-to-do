@@ -3,6 +3,7 @@ import {
 	buttonController,
 	modalController,
 	domController,
+	formController,
 } from "./dom";
 import { loadTodayPage, loadThisWeekPage, loadThisMonthPage } from "./sort";
 import {
@@ -55,6 +56,18 @@ export function initializeEventListeners() {
 		"click",
 		(event) => {
 			event.preventDefault();
+
+			if (
+				!formController.addToDoTitle.value.trim() ||
+				!formController.addToDoDescription.value.trim() ||
+				!formController.addToDoDate.value.trim()
+			) {
+				alert(
+					"All fields must be filled out before adding a To-Do-Do."
+				);
+				return;
+			}
+
 			const newTodo = createTodo();
 			saveToDoModal(newTodo);
 			addTodoToDefaultProject(newTodo);
@@ -106,16 +119,16 @@ export function initializeEventListeners() {
 			return;
 		}
 
-		modalController.displayToDoModal.dataset.id = todoId; // Store the ID in the modal
-		renderToDoDetails(todo); // Populate the modal with to-do details
-		modalController.displayToDoModal.showModal(); // Show the modal
+		modalController.displayToDoModal.dataset.id = todoId;
+		renderToDoDetails(todo);
+		modalController.displayToDoModal.showModal();
 	});
 
 	modalController.deleteToDoButton.addEventListener("click", () => {
-		const todoId = Number(modalController.displayToDoModal.dataset.id); // Retrieve the ID from the modal
-		todoController.deleteTodo({ id: todoId }); // Delete the to-do using its ID
-		modalController.displayToDoModal.close(); // Close the modal
-		renderToDos(currentProject); // Re-render the to-do list
+		const todoId = Number(modalController.displayToDoModal.dataset.id);
+		todoController.deleteTodo({ id: todoId });
+		modalController.displayToDoModal.close();
+		renderToDos(currentProject);
 	});
 
 	modalController.closeDisplayToDoButton.addEventListener("click", () => {
@@ -123,6 +136,13 @@ export function initializeEventListeners() {
 	});
 
 	// Edit To-Do
+	modalController.editToDoButton.addEventListener("click", () => {
+		modalController.editToDoModal.showModal();
+	});
+
+	modalController.closeEditModalButton.addEventListener("click", () => {
+		modalController.editToDoModal.close();
+	});
 
 	// Mark complete function
 	domController.contentContainer.addEventListener("click", (event) => {

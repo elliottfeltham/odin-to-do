@@ -96,8 +96,35 @@
         </div>
     </dialog>
     <dialog id="edit-to-do-modal">
-
-
+        <form>
+            <ul>
+                <li class="modal-input">
+                    <label for="edit-to-do-title">Title:</label>
+                    <input type="text" id="edit-to-do-title" name="edit-to-do-title" autocomplete="off">
+                </li>
+                <li class="modal-input">
+                    <label for="edit-to-do-description">Description:</label>
+                    <input type="text" id="edit-to-do-description" name="edit-to-do-description" autocomplete="off">
+                </li>
+                <li class="modal-input">
+                    <label for="edit-to-do-date">Date:</label>
+                    <input type="date" id="edit-to-do-date" name="edit-to-do-date" autocomplete="off">
+                </li>
+                <li class="modal-input">
+                    <label for="edit-to-do-priority">Priority:</label>
+                    <select id="edit-to-do-priority" name="edit-to-do-priority">
+                        <option value="low">-Select a priority-</option>
+                        <option value="high">High</option>
+                        <option value="medium">Medium</option>
+                        <option value="low">Low</option>
+                    </select>
+                </li>
+                <div class="modal-buttons">
+                    <button id="confirm-edit-modal-btn" type="button">Edit To-do-do!</button>
+                    <button id="close-edit-modal-btn" type="button">Close</button>
+                </div>
+            </ul>
+        </form>
     </dialog>
     <dialog id="add-project-modal">
         <form>

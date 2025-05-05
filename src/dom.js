@@ -34,10 +34,12 @@ export const modalController = {
 	displayToDoDate: document.querySelector("#display-to-do-date"),
 	displayToDoPriority: document.querySelector("#display-to-do-priority"),
 	closeDisplayToDoButton: document.querySelector("#close-display-to-do-btn"),
+	editToDoButton: document.querySelector("#edit-to-do-btn"),
 	deleteToDoButton: document.querySelector(".delete-to-do-btn"),
 
 	// Edit To-Do Modal
 	editToDoModal: document.querySelector("#edit-to-do-modal"),
+	closeEditModalButton: document.querySelector("#close-edit-modal-btn"),
 };
 
 export const formController = {
