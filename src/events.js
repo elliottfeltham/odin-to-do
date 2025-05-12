@@ -15,6 +15,7 @@ import {
 } from "./projects";
 import {
 	createTodo,
+	editTodo,
 	toggleCompleted,
 	addTodoToDefaultProject,
 	todoController,
@@ -23,6 +24,7 @@ import {
 	renderProjects,
 	renderToDoDetails,
 	renderToDos,
+	resetEditToDoModal,
 	resetProjectModal,
 	resetToDoModal,
 	saveProjectModal,
@@ -72,7 +74,7 @@ export function initializeEventListeners() {
 			saveToDoModal(newTodo);
 			addTodoToDefaultProject(newTodo);
 			// Add todo to project function call // addTodoToProject(newTodo, curretnProject)
-			renderToDos(currentProject); // Change this to current project when the logic is set up
+			renderToDos(currentProject);
 			modalController.addToDoModal.close();
 			resetToDoModal();
 		}
@@ -140,6 +142,36 @@ export function initializeEventListeners() {
 		modalController.editToDoModal.showModal();
 	});
 
+	modalController.confirmEditModalButton.addEventListener(
+		"click",
+		(event) => {
+			event.preventDefault();
+
+			if (
+				!formController.editToDoTitle.value.trim() ||
+				!formController.editToDoDescription.value.trim() ||
+				!formController.editToDoDate.value.trim()
+			) {
+				alert(
+					"All fields must be filled out before editing a To-Do-Do."
+				);
+				return;
+			}
+			const todoId = Number(modalController.displayToDoModal.dataset.id);
+			todoController.editTodo(
+				{ id: todoId },
+				formController.editToDoTitle.value,
+				formController.editToDoDescription.value,
+				formController.editToDoDate.value,
+				formController.editToDoPriority.value
+			);
+			modalController.editToDoModal.close();
+			modalController.displayToDoModal.close();
+			resetEditToDoModal();
+			renderToDos(currentProject);
+		}
+	);
+
 	modalController.closeEditModalButton.addEventListener("click", () => {
 		modalController.editToDoModal.close();
 	});
@@ -150,10 +182,10 @@ export function initializeEventListeners() {
 			const todoItem = event.target.closest(".to-do-item");
 
 			const todoIndex = todoItem.dataset.indexNumber;
-			const todo = currentProject.todos[todoIndex]; // Adjust this to target the correct project
+			const todo = currentProject.todos[todoIndex];
 			toggleCompleted(todo);
 			domController.todoItemList.innerHTML = "";
-			renderToDos(currentProject); // Adjust this to target the current project
+			renderToDos(currentProject);
 		}
 	});
 }

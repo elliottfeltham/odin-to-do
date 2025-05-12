@@ -91,7 +91,7 @@ export function editTodo(
 		if (todo) {
 			todo.title = newTitle;
 			todo.description = newDescription;
-			todo.dueDate = newDate;
+			todo.date = newDate;
 			todo.priority = newPriority;
 		}
 	});

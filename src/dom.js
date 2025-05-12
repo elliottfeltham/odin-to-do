@@ -39,15 +39,22 @@ export const modalController = {
 
 	// Edit To-Do Modal
 	editToDoModal: document.querySelector("#edit-to-do-modal"),
+	confirmEditModalButton: document.querySelector("#confirm-edit-modal-btn"),
 	closeEditModalButton: document.querySelector("#close-edit-modal-btn"),
 };
 
 export const formController = {
+	// Add To-Do Form
 	addToDoTitle: document.querySelector("#add-to-do-title"),
 	addToDoDescription: document.querySelector("#add-to-do-description"),
 	addToDoDate: document.querySelector("#add-to-do-date"),
 	addToDoPriority: document.querySelector("#add-to-do-priority"),
 	addProjectName: document.querySelector("#add-project-name"),
+	// Edit To-Do Form
+	editToDoTitle: document.querySelector("#edit-to-do-title"),
+	editToDoDescription: document.querySelector("#edit-to-do-description"),
+	editToDoDate: document.querySelector("#edit-to-do-date"),
+	editToDoPriority: document.querySelector("#edit-to-do-priority"),
 };
 
 export const domController = {

@@ -96,6 +96,13 @@ export function resetToDoModal() {
 	formController.addToDoPriority.value = "";
 }
 
+export function resetEditToDoModal() {
+	formController.editToDoTitle.value = "";
+	formController.editToDoDescription.value = "";
+	formController.editToDoDate.value = "";
+	formController.editToDoPriority.value = "";
+}
+
 export function resetProjectModal() {
 	formController.addProjectName.value = "";
 }
